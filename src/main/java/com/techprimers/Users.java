@@ -3,24 +3,22 @@ package com.techprimers;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
 @Document(collection = "users")
 public class Users {
-	
+
 	@Id
 	private String userid;
 	private String name;
 	private String teamName;
-	@Override
-	public String toString() {
-		return "Users [userid=" + userid + ", name=" + name + ", teamName=" + teamName + ", salary=" + salary + "]";
-	}
-
 	private Long salary;
 	
-	public Users( String userid,String name, String teamName, Long salary) {
+	//Default Constructor
+	public Users() {
+
+	}
+
+	public Users(String name, String teamName, Long salary) {
 		super();
-		this.userid=userid;
 		this.name = name;
 		this.teamName = teamName;
 		this.salary = salary;
@@ -57,6 +55,10 @@ public class Users {
 	public void setSalary(Long salary) {
 		this.salary = salary;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Users [userid=" + userid + ", name=" + name + ", teamName=" + teamName + ", salary=" + salary + "]";
+	}
+
 }
